@@ -5,7 +5,7 @@ const cors = require('cors')
 const consign = require('consign');
 const dotenv = require('dotenv')
 
-dotenv.config({path: '.env-local'})
+dotenv.config({path: '.local-env'})
 
 module.exports = () => {
     const app = express();

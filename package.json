@@ -4,10 +4,10 @@
   "description": "Api w/ docker",
   "main": "serve.js",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "nodemon server.js",
     "lint": "eslint --ext .js,.html -f ./node_modules/eslint-friendly-formatter . --fix",
     "prepush": "npm run lint",
-    "start": "node serve.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Matheus Saad",

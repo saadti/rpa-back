@@ -6,10 +6,10 @@ module.exports = (app) => {
         try {
             conn = await pool.getConnection()
 
-            let sql = `SELECT * FROM visitants`
+            let sql = `SELECT * FROM visitant`
             let result = await conn.query(sql)
 
-            res.send(result)
+            return result
         } catch (error) {
             throw error
         } finally {
