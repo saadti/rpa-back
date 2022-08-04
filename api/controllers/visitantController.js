@@ -8,7 +8,7 @@ module.exports = (app) => {
     }
 
     visitantController.addVisitant = async (req, res) => {
-        const result = await visitantService.addVisitant(req.body)
+        const result = await visitantService.addVisitant(req.body.name, req.body.apVisitant, req.body.observation)
         await res.status(201).json(result)
     }
 

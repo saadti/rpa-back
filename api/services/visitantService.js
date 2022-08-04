@@ -1,25 +1,15 @@
 module.exports = (app) => {
-    const pool = app.connector.db
+    const queryMake = app.connector.query
 
     const listVisitants = async () => {
-        let conn
-        try {
-            conn = await pool.getConnection()
+        return queryMake.query('SELECT * FROM visitant')
+    }
 
-            let sql = `SELECT * FROM visitant`
-            let result = await conn.query(sql)
-
-            return result
-        } catch (error) {
-            throw error
-        } finally {
-            if (conn) {
-                conn.release()
-            }
-        }
+    const addVisitant = async (name, apVisitant, observation = '') => {
+        queryMake.query(`INSERT INTO visitant (name, apVisitant, observation) VALUES ("${name}", "${apVisitant}", "${observation}")`)
     }
 
     return {
-        listVisitants
+        listVisitants, addVisitant
     }
 }
